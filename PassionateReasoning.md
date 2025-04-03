@@ -31,6 +31,7 @@ We implemented Passionate Reasoning in MiniMind through the following steps:
  
 2. **Active Retrieval Model** 
 In each reasoning step, given an input $$I_t$$, the model selects the most relevant knowledge base entry using a weighted cosine similarity function:
+
 $$
  \text{Sim}(I_t, K_i) = \frac{I_t \cdot K_i}{\| I_t \| \| K_i \|} 
 $$
@@ -39,11 +40,16 @@ where $$I_t$$ is the input embedding, $$K_i$$ is the embedding of the $$i$$-th k
  
 4. **Monte Carlo Tree Search (MCTS)** 
 MCTS selects the optimal path from multiple reasoning trajectories. Given a state tree $$S_t$$, MCTS simulates node evaluations and selects the path with the highest expected return:
+
 $$
  Q(s_t, a_t) = R_t + \gamma \max_{a_{t+1}} Q(s_{t+1}, a_{t+1}) 
 $$
 
-where $$Q(s_t, a_t)$$ represents the value of state $$s_t$$ and action $$a_t$$, $$R_t$$ is the reward at the current state, and $$\gamma$$ is the discount factor.
+where
+
+$$Q(s_t, a_t)$$ 
+
+represents the value of state $$s_t$$ and action $$a_t$$, $$R_t$$ is the reward at the current state, and $$\gamma$$ is the discount factor.
 
 **4. Experimental Setup** 
 
